@@ -82,7 +82,7 @@ pipeline {
 		   		
                 sh """   
 					echo ${BUILD_NUMBER}
-					sed -i -e "s/\\(csi:\\).*/\\1${DOCKER_IMAGE_REPO_TAG}-v_${BRANCH}_${BUILD_NUMBER}/" ${APP_EKS}/${EKS_DEPLOY_YML}
+					sed -i -e "s/\\(csi-argo:\\).*/\\1${DOCKER_IMAGE_REPO_TAG}-v_${BRANCH}_${BUILD_NUMBER}/" ${APP_EKS}/${EKS_DEPLOY_YML}
 					cat ${APP_EKS}/${EKS_DEPLOY_YML}
 					cd ${APP_DIR}
 					docker build --no-cache -t 264672321272.dkr.ecr.us-east-1.amazonaws.com/${DOCKER_IMAGE_REPO}:${DOCKER_IMAGE_REPO_TAG}-v_${BRANCH}_${BUILD_NUMBER} .
@@ -115,7 +115,7 @@ pipeline {
 					sh """
 					echo ${BUILD_NUMBER}
 					cat ${APP_EKS}/${EKS_DEPLOY_YML}
-					kubectl apply -f ${APP_EKS} --namespace csi-dev --context ${EKS_Cluster}
+					kubectl apply -f ${APP_EKS} --namespace csi-argo --context ${EKS_Cluster}
 					"""
 				}
 			}
