@@ -1,11 +1,11 @@
 def abort					= false
 def APP_DIR					= "app-delivarables"
 def APP_EKS					= "kube-manifests"
-def EKS_Cluster				= "test-csi"
+def EKS_Cluster				= "test-dev"
 def deployed				= false
 def EKS_DEPLOY_YML			= "Deployment.yml"
 def BRANCH					= ""
-def DOCKER_IMAGE_REPO		= "csi"
+def DOCKER_IMAGE_REPO		= "csi-argo"
 def DOCKER_IMAGE_REPO_TAG	= "test"
 
 pipeline {
